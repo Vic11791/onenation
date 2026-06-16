@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #e05a5a;
+  --color-brand-50: #fef2f2;
+  --color-brand-100: #fee2e2;
+  --color-brand-200: #fecaca;
+  --color-brand-300: #fca5a5;
+  --color-brand-400: #f87171;
+  --color-brand-500: #e05a5a;
+  --color-brand-600: #dc2626;
+  --color-brand-700: #b91c1c;
+  --color-brand-800: #991b1b;
+  --color-brand-900: #7f1d1d;
+
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-fg);
+  --color-card: var(--card-bg);
+  --color-border: var(--border-color);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-fg);
+
+  --animate-shimmer: shimmer 1.5s infinite;
+  --animate-fade-in: fadeIn 0.3s ease-out;
+  --animate-slide-up: slideUp 0.3s ease-out;
+  --animate-slide-in: slideIn 0.3s ease-out;
+  --animate-confetti: confetti 1s ease-out forwards;
+
+  --font-sans: Inter, system-ui, sans-serif;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes confetti {
+  0% { transform: scale(0) rotate(0deg); opacity: 1; }
+  100% { transform: scale(1.5) rotate(20deg); opacity: 0; }
+}
+
+:root {
+  --bg: #ffffff;
+  --fg: #0f172a;
+  --muted: #f1f5f9;
+  --muted-fg: #64748b;
+  --card-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --primary: #e05a5a;
+  --primary-fg: #ffffff;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --radius-sm: 0.25rem;
+  --radius: 0.5rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+.dark {
+  --bg: #0f172a;
+  --fg: #f1f5f9;
+  --muted: #1e293b;
+  --muted-fg: #94a3b8;
+  --card-bg: #1e293b;
+  --border-color: #334155;
+  --primary: #e05a5a;
+  --primary-fg: #ffffff;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted-fg); }
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Shimmer skeleton */
+.skeleton-shimmer {
+  background: linear-gradient(90deg, var(--muted) 25%, var(--border-color) 50%, var(--muted) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
