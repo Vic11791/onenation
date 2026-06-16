@@ -1,18 +1,17 @@
 {
   "name": "One Nation Tax CRM",
-  "short_name": "ON Tax",
+  "short_name": "ONT CRM",
   "description": "CRM system for One Nation Tax and Document Services LLC",
-  "start_url": "/",
+  "start_url": "/dashboard",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#0f1117",
   "theme_color": "#e05a5a",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/favicon.ico",
       "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "type": "image/x-icon"
     }
   ]
 }

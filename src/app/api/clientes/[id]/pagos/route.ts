@@ -33,8 +33,6 @@ export async function POST(request: Request, { params }: Params) {
       update: { ultimo: { increment: 1 } },
       create: { id: 'singleton', ultimo: 1 },
     })
-    const folio = `F-${String(contador.ultimo).padStart(5, '0')}`
-
     const pago = await prisma.pago.create({
       data: {
         clienteId: id,
@@ -44,7 +42,7 @@ export async function POST(request: Request, { params }: Params) {
         concepto: concepto || null,
         estatus: estatus || 'pendiente',
         moneda: moneda || 'USD',
-        folio,
+        folio: contador.ultimo,
         fechaVencimiento: fechaVencimiento ? new Date(fechaVencimiento) : null,
       },
     })
